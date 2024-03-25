@@ -28,3 +28,31 @@ class Solution:
                 head2 = head2.next
         new_head = self.reverse(head.next)
         return new_head
+#Using Stack 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        stack1 = []
+        stack2 = []
+        head1 = l1
+        head2 = l2
+        while head1:
+            stack1.append(head1.val)
+            head1 = head1.next
+        while head2:
+            stack2.append(head2.val)
+            head2 = head2.next
+        carry = 0
+        dummy = ListNode()
+        while stack1 or stack2 or carry:
+            sum = (stack1.pop() if stack1 else 0) + (stack2.pop() if stack2 else 0) + carry
+            carry = sum//10
+            sum = sum%10
+            newNode = ListNode(sum)
+            newNode.next = dummy.next
+            dummy.next = newNode
+        return dummy.next
