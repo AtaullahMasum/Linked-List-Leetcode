@@ -19,7 +19,7 @@ class Solution:
                 return temp2
             temp2 = temp2.next
         return None
-#Optimal Solution Added
+# another  Solution Added
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -54,6 +54,17 @@ class Solution:
             temp1 = temp1.next
             temp2 = temp2.next
         return None
-
+#Optimal Solution added
+class Solution:
+   
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        if not headA or not headB:
+            return None
+        temp1 = headA 
+        temp2 = headB
+        while temp1 != temp2:
+            temp1 = headB if not temp1  else temp1.next
+            temp2 = headA if not temp2 else  temp2.next
+        return temp1
 
         
