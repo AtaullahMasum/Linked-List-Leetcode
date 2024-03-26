@@ -33,3 +33,27 @@ class Solution:
             newnode.next = newhead
             newhead = newnode
         return newhead
+#Recursive solution added
+class Solution:
+    def add_one_recursive(self,node):
+            if not node:
+                return 1  # Carry for an empty node is 1
+            
+            carry = self.add_one_recursive(node.next)
+            node.data += carry
+            if node.data< 10:
+                return 0
+            node.data = 0
+            return 1
+        
+        
+    def addOne(self,head):
+        #Returns new head of linked List.
+        temp = head
+        carry = self.add_one_recursive(head)
+        if carry:
+            newhead = Node(1)
+            newhead.next = head
+            return newhead
+        return head
+        
