@@ -22,7 +22,7 @@ class Solution:
         carry = 1
         temp = newhead
         while carry and temp:
-            sum = temp.data + carry if temp else carry
+            sum = temp.data + carry 
             carry = sum//10
             sum = sum%10
             temp.data = sum
