@@ -26,13 +26,11 @@ class Solution:
     def findMiddle(self, head):
         slow = head
         fast = head.next
-        #prev = None  # Keep track of the previous node to split the list
+        
         while fast and fast.next:
-            #prev = slow  # Update the previous node
+           
             slow = slow.next
             fast = fast.next.next
-        #if prev:
-        #    prev.next = None  # Split the list at the middle node
         return slow
     def mergeSort(self, head):
         if not head or not head.next:
