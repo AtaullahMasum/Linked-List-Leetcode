@@ -6,7 +6,8 @@ class Node:
         self.next = next
         self.random = random
 """
-
+#Time Complexity is O(2n)
+#Space Complexity is O(n)
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if not head:
@@ -24,4 +25,3 @@ class Solution:
             copynode.random = hashmap.get(temp.random)
             temp = temp.next
         return hashmap[head]
-        
