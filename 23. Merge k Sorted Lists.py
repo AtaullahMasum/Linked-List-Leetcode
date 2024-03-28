@@ -30,3 +30,34 @@ class Solution:
         for i in range(1, len(lists)):
             head = self.mergeSortedList(head, lists[i])
         return head
+#using Min Heap
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+import heapq
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if not lists:
+            return None
+        
+        
+        dummy = ListNode()
+        temp = dummy
+        heap = []
+        
+        # Push the first element of each list onto the heap
+        for head in lists:
+            if head:    
+              heapq.heappush(heap, (head.val, id(head), head))
+        
+        while heap:
+            val, _, node = heapq.heappop(heap)
+            temp.next = node
+            temp = temp.next
+            if node.next:
+                heapq.heappush(heap, (node.next.val, id(node.next), node.next))
+        
+        return dummy.next
+         
