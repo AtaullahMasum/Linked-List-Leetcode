@@ -36,6 +36,8 @@ class Solution:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+#This solution has a time complexity of O(N log k),
+#where N is the total number of nodes across all linked lists and k is the number of linked lists. 
 import heapq
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
@@ -60,6 +62,7 @@ class Solution:
                 heapq.heappush(heap, (node.next.val, id(node.next), node.next))
         
         return dummy.next
+
 #In Python, the id() function returns the unique identifier (memory address) of an object. 
 #It's used here in conjunction with the node's value to ensure that two nodes with the same value don't collide in the heap.
 
