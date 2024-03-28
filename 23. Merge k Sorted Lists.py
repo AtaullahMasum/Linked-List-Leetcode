@@ -60,4 +60,9 @@ class Solution:
                 heapq.heappush(heap, (node.next.val, id(node.next), node.next))
         
         return dummy.next
+#In Python, the id() function returns the unique identifier (memory address) of an object. 
+#It's used here in conjunction with the node's value to ensure that two nodes with the same value don't collide in the heap.
+
+#In other languages like C++ or Java, pointers or references are used to directly represent memory addresses. 
+#When comparing pointers or references in these languages, you're essentially comparing memory addresses implicitly.
          
